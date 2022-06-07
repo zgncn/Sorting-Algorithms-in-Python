@@ -1,0 +1,41 @@
+"""
+SELECTION SORT -> Bu sıralama tekniği tekrar tekrar minimum öğeyi bulur ve sırayla sıralar.
+
+Time Complexity
+-Best Case Scenario -> O(n^2)
+-Average and Worst Case Scenario -> O(n^2)
+
+Example
+
+Here we sort the following sequence using the selection sort
+
+Sequence: 7, 2, 1, 6
+
+(7, 2, 1, 6) –> (1, 7, 2, 6), In the first traverse it finds the minimum element(i.e., 1) and it is placed at 1st position.
+
+(1, 7, 2, 6) –> (1, 2, 7, 6), In the second traverse it finds the 2nd minimum element(i.e., 2) and it is placed at 2nd position.
+
+(1, 2, 7, 6) –> (1, 2, 6, 7), In the third traverse it finds the next minimum element(i.e., 6) and it is placed at 3rd position.
+
+After the above iterations, the final array is in sorted order, i.e., 1, 2, 6, 7.
+
+CODE
+"""
+def selectionSort(array,size):
+    for s in range(size):
+        min=s
+
+        for i in range(s+1,size):
+            # For sorting in descending order
+            # for minimum element in each loop
+            if array[i] < array[min]:
+                min=i
+
+        # Arranging min at the correct position(minimumun doğru pozisyona düzenlenmesi)
+        array[s],array[min] = array[min],array[s]
+
+data = [7,2,1,6]
+size = len(data)
+selectionSort(data, size)
+
+print("Sorted Array in Ascending Order is :",data)
